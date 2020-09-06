@@ -19,10 +19,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="107f6f2a-88aa-40e2-a7cd-74f98e6a99d2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+    <list default="true" id="107f6f2a-88aa-40e2-a7cd-74f98e6a99d2" name="Default Changelist" comment="рабочее соединение веб сервера">
+      <change afterPath="$PROJECT_DIR$/assets/js/templates.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/favicon.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/Socket.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/Socket.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,8 +41,8 @@
       <list>
         <option value="HTML File" />
         <option value="Less File" />
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -59,7 +62,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../OpenServer/OSPanel/domains/yii2" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -82,8 +85,18 @@
       <updated>1599293999617</updated>
       <workItem from="1599294000729" duration="7490000" />
       <workItem from="1599312061892" duration="326000" />
-      <workItem from="1599313767874" duration="2094000" />
+      <workItem from="1599313767874" duration="2872000" />
+      <workItem from="1599379649760" duration="81000" />
+      <workItem from="1599383930495" duration="7897000" />
     </task>
+    <task id="LOCAL-00001" summary="рабочее соединение веб сервера">
+      <created>1599316104671</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1599316104671</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -99,18 +112,33 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="рабочее соединение веб сервера" />
+    <option name="LAST_COMMIT_MESSAGE" value="рабочее соединение веб сервера" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1599318189993">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1599318189993" />
     <state x="351" y="142" key="EditFileWatcherDialog" timestamp="1599294128382">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="351" y="142" key="EditFileWatcherDialog/0.0.1366.728@0.0.1366.728" timestamp="1599294128382" />
+    <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1599379727877">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1599379727877" />
     <state x="857" y="97" key="RollbackChangesDialog" timestamp="1599314565247">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="857" y="97" key="RollbackChangesDialog/0.0.1366.728@0.0.1366.728" timestamp="1599314565247" />
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2" timestamp="1599316111440">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="96" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1599316111440" />
   </component>
 </project>
