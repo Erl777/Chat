@@ -2,72 +2,37 @@ class Socket {
     constructor(params) {
         const options = params || {};
         this.settings = {
+            hostname: options.hostname || 'localhost',
+            port: options.port || '3000'
+        };
+        this.socket = null;
+    }
 
+    init(){
+        // this.socket = new WebSocket("ws://localhost:3003");
+        this.socket = new WebSocket(`ws://${this.settings.hostname}:${this.settings.port}`);
+
+        this.socket.onopen = function() {
+            chatEvent.userOnline();
         };
 
-        // this.socket = new WebSocket("ws://localhost:3001");
+        this.socket.onclose = function() {
+            chatEvent.userOffline();
+        };
+
+        this.socket.onmessage = function (event) {
+            let data = JSON.parse(event.data);
+            // chat.createMessage( 'receiver' , data.message, 'John Doe');
+            chatEvent.sendMessage(data);
+        };
     }
 }
 
-// Elements
-let messageInput = document.getElementById('comment');
-let replySendIcon = document.querySelector('.reply-send');
-let chatRoom = document.getElementById('conversation');
+let connection = new Socket({
+    // hostname: 'online',
+    port: '3003'
+});
+connection.init();
 
-// Events
-replySendIcon.addEventListener('click', sendMessage);
 
-function createMessageTemplate(type, message, name = 'user'){
-    let string = '';
-    if (type === 'system'){
-        string = templates.system.replace('{message}', message);
-    }
-    if (type === 'receiver'){
-        string = templates.receiver.replace('{message}', message).replace('{name}', name);
-    }
-    if (type === 'sender'){
-        string = templates.sender.replace('{message}', message).replace('{name}', name);
-    }
-    return string;
-}
 
-function pasteMessageInChat(message) {
-    chatRoom.innerHTML += message;
-}
-
-function createMessage(type, message, name) {
-    let readyTemplate = createMessageTemplate(type, message, name );
-    pasteMessageInChat(readyTemplate);
-}
-
-function sendMessage() {
-    let name = 'name';
-    let data = {
-        name: name,
-        message: messageInput.value,
-    };
-    if( messageInput.value !== '' ) socket.send(JSON.stringify(data));
-    console.log(data);
-    messageInput.value = '';
-}
-
-let socket = new WebSocket("ws://localhost:3003");
-
-socket.onopen = function(e) {
-    console.log("Соединение установлено");
-    createMessage('system', 'You are Online');
-};
-
-socket.onclose = function(e) {
-    console.log("Соединение закрыто");
-    createMessage('system', 'You are Offline');
-};
-
-// socket.onmessage = response => printMessage(response.data);
-// socket.onmessage = response => createMessage( 'receiver' , response.data, 'user1');
-
-socket.onmessage = function (event) {
-    var data = JSON.parse(event.data);
-    // console.log(JSON.parse(event.data));
-    createMessage( 'receiver' , data.message, 'user1');
-};
