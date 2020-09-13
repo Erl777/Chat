@@ -5,10 +5,14 @@ class Message {
         this.name = name;
     }
     createAndSendMessage(){
-        this.pasteMessageInChat(this.generateMessageTemplate())
+        this.pasteMessageInChat(this.generateMessageTemplate());
+        this.pasteMessageInMobileChat(this.generateMessageTemplate());
     }
     pasteMessageInChat(message){
         chat.chatRoom.innerHTML += message;
+    }
+    pasteMessageInMobileChat(message){
+        chat.mobileChat.innerHTML += message;
     }
 }
 
@@ -52,13 +56,13 @@ class SenderMessage extends Message{
 
 const factory = new MessageFactory();
 
-let m1 = factory.create('system', 'SUCCESS');
+// let m1 = factory.create('system', 'SUCCESS');
 let m2 = factory.create('receiver', 'Hello comrade', 'User');
 let m3 = factory.create('sender', 'I am fine. What about you?', 'Me');
 setTimeout(() =>{
-    m1.createAndSendMessage();
+    // m1.createAndSendMessage();
     m2.createAndSendMessage();
     m3.createAndSendMessage();
-}, 3000)
+}, 3000);
 
 

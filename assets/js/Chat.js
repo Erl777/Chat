@@ -8,6 +8,7 @@ class Chat {
         this.messageInput = document.getElementById('comment');
         this.replySendIcon = document.querySelector('.reply-send');
         this.chatRoom = document.getElementById('conversation');
+        this.mobileChat = document.querySelector('.mobile-chat > .mobile-chat-body');
     }
 
     init(){
@@ -16,28 +17,28 @@ class Chat {
         this.messageInput.addEventListener('input', chatEvent.userTyping);
     }
 
-    createMessageTemplate(type, message, name = 'user'){
-        let string = '';
-        if (type === 'system'){
-            string = templates.system.replace('{message}', message);
-        }
-        if (type === 'receiver'){
-            string = templates.receiver.replace('{message}', message).replace('{name}', name);
-        }
-        if (type === 'sender'){
-            string = templates.sender.replace('{message}', message).replace('{name}', name);
-        }
-        return string;
-    }
-
-    pasteMessageInChat(message) {
-        this.chatRoom.innerHTML += message;
-    }
-
-    createMessage(type, message, name) {
-        let readyTemplate = this.createMessageTemplate(type, message, name );
-        this.pasteMessageInChat(readyTemplate);
-    }
+    // createMessageTemplate(type, message, name = 'user'){
+    //     let string = '';
+    //     if (type === 'system'){
+    //         string = templates.system.replace('{message}', message);
+    //     }
+    //     if (type === 'receiver'){
+    //         string = templates.receiver.replace('{message}', message).replace('{name}', name);
+    //     }
+    //     if (type === 'sender'){
+    //         string = templates.sender.replace('{message}', message).replace('{name}', name);
+    //     }
+    //     return string;
+    // }
+    //
+    // pasteMessageInChat(message) {
+    //     this.chatRoom.innerHTML += message;
+    // }
+    //
+    // createMessage(type, message, name) {
+    //     let readyTemplate = this.createMessageTemplate(type, message, name );
+    //     this.pasteMessageInChat(readyTemplate);
+    // }
 
     sendMessage = () => {
         let data = {

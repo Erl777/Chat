@@ -7,11 +7,14 @@ class Events {
     }
 
     userOnline(){
-        chat.createMessage('system', 'You are Online');
+        let message = factory.create('system', 'You are Online');
+        message.createAndSendMessage();
+        // chat.createMessage('system', 'You are Online');
     }
 
     userOffline(){
-        chat.createMessage('system', 'You are Offline');
+        let message = factory.create('system', 'You are Offline');
+        message.createAndSendMessage();
     }
 
     userTyping(){
@@ -19,7 +22,9 @@ class Events {
     }
 
     sendMessage(data){
-        chat.createMessage( 'receiver' , data.message, 'John Doe');
+        // chat.createMessage( 'receiver' , data.message, 'John Doe');
+        let message = factory.create('receiver' , data.message, 'John Doe');
+        message.createAndSendMessage();
     }
 
     moveToTop(){

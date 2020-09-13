@@ -356,9 +356,9 @@ body {
 }
 
 .message-main-sender {
-    padding: 3px 20px !important;
-    margin-left: 40% !important;
-    max-width: 60%;
+    /*padding: 3px 20px !important;*/
+    /*margin-left: 40% !important;*/
+    /*max-width: 60%;*/
 }
 
 .message-main-system {
@@ -377,11 +377,9 @@ body {
 
 .message-time {
     margin: 0 !important;
-    margin-left: 50px !important;
     font-size: 12px;
     text-align: right;
     color: #9a9a9a;
-
 }
 
 .receiver {

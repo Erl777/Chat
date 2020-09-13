@@ -14,3 +14,16 @@ newMessageBack.addEventListener('click', function (){
 });
 
 //---------------------------
+
+
+// Mobile menu
+
+let toggler = document.querySelector('.js-toggle');
+let mobileMenu = document.querySelector('.mobile-chat');
+
+if(toggler) toggler.addEventListener('click', toggleMobileMenu);
+
+function toggleMobileMenu() {
+    mobileMenu.classList.toggle('hide');
+    toggler.classList.toggle('closed');
+}
