@@ -104,7 +104,7 @@ body {
 .heading-name-meta {
     font-weight: 700;
     font-size: 100%;
-    padding: 5px 5px 0 5px;
+    padding: 0;
     text-align: left;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -112,7 +112,7 @@ body {
     display: block;
 }
 .heading-online {
-    display: none;
+    /*display: none;*/
     padding: 0 5px;
     font-size: 12px;
     color: #93918f;
@@ -141,6 +141,7 @@ body {
 }
 
 .searchBox {
+    display: none;
     padding: 0 !important;
     margin: 0 !important;
     height: 60px;
@@ -344,7 +345,7 @@ body {
 }
 
 .message-body {
-    margin: 0 !important;
+    margin: 0 0 10px 0 !important;
     padding: 0 !important;
     width: auto;
     height: auto;
@@ -355,11 +356,11 @@ body {
     max-width: 60%;
 }
 
-.message-main-sender {
-    /*padding: 3px 20px !important;*/
-    /*margin-left: 40% !important;*/
-    /*max-width: 60%;*/
-}
+/*.message-main-sender {*/
+/*    padding: 3px 20px !important;*/
+/*    margin-left: 40% !important;*/
+/*    max-width: 60%;*/
+/*}*/
 
 .message-main-system {
     padding: 3px 20px;
@@ -405,6 +406,10 @@ body {
     word-wrap: break-word;
 }
 
+.sender, .receiver{
+    min-width: 100px;
+}
+
 .system{
     display: inline-block;
     padding: 2px 20px !important;
@@ -421,12 +426,14 @@ body {
 /*Reply*/
 
 .reply {
+    position: relative;
     height: 60px;
     width: 100%;
     background-color: #f5f1ee;
     padding: 10px 5px 10px 5px !important;
     margin: 0 !important;
     z-index: 1000;
+    overflow: unset;
 }
 
 .reply-emojis {
@@ -484,6 +491,72 @@ body {
     border: none;
     text-indent: 5px;
     box-shadow: none;
+}
+
+.tiblock.show-typing{
+    display: inline-block;
+}
+
+.anim1{
+    animation-duration: 5s;
+    animation-name: blink;
+}
+
+@keyframes blink {
+    from {
+        background-color: #eee;
+    }
+
+    to {
+        background-color: #ffffff;
+    }
+}
+
+.tiblock {
+    position: absolute;
+    display: none;
+    left: 78%;
+    top: -20px;
+    width: auto;
+    align-items: center;
+    /*display: inline-flex;*/
+    height: 17px;
+}
+
+.tidot {
+    background-color: #90949c;
+    /*background-color: red;*/
+}
+
+.tidot {
+    -webkit-animation: mercuryTypingAnimation 1.5s infinite ease-in-out;
+    border-radius: 2px;
+    display: inline-block;
+    height: 8px;
+    margin-right: 2px;
+    width: 8px;
+}
+
+@-webkit-keyframes mercuryTypingAnimation{
+    0%{
+        -webkit-transform:translateY(0px)
+    }
+    28%{
+        -webkit-transform:translateY(-5px)
+    }
+    44%{
+        -webkit-transform:translateY(0px)
+    }
+}
+
+.tidot:nth-child(1){
+    -webkit-animation-delay:200ms;
+}
+.tidot:nth-child(2){
+    -webkit-animation-delay:300ms;
+}
+.tidot:nth-child(3){
+    -webkit-animation-delay:400ms;
 }
 
 @media screen and (max-width: 700px) {

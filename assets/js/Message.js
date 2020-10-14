@@ -1,8 +1,8 @@
 class Message {
-    constructor(type, content, name) {
+    constructor(type, content, time) {
         this.type = type;
         this.content = content;
-        this.name = name;
+        this.time = time;
     }
     createAndSendMessage(){
         this.pasteMessageInChat(this.generateMessageTemplate());
@@ -17,15 +17,15 @@ class Message {
 }
 
 class MessageFactory {
-    create(type, content, name){
+    create(type, content, time){
         if (type === 'system'){
-            return new SystemMessage(type, content, name);
+            return new SystemMessage(type, content, time);
         }
         if (type === 'receiver'){
-            return new ReceiverMessage(type, content, name);
+            return new ReceiverMessage(type, content, time);
         }
         if (type === 'sender'){
-            return new SenderMessage(type, content, name);
+            return new SenderMessage(type, content, time);
         }
     }
 }
@@ -41,7 +41,7 @@ class SystemMessage extends Message{
 class ReceiverMessage extends Message{
 
     generateMessageTemplate(){
-        return  templates.receiver.replace('{message}', this.content).replace('{name}', this.name);
+        return  templates.receiver.replace('{message}', this.content).replace('{time}', this.time);
     }
 
 }
@@ -49,20 +49,25 @@ class ReceiverMessage extends Message{
 class SenderMessage extends Message{
 
     generateMessageTemplate(){
-        return  templates.sender.replace('{message}', this.content).replace('{name}', this.name);
+        return  templates.sender.replace('{message}', this.content).replace('{time}', this.time);
     }
 
+}
+
+function getCurrentTime() {
+    let time = new Date();
+    return time.getHours() + ':' + time.getMinutes();
 }
 
 const factory = new MessageFactory();
 
 // let m1 = factory.create('system', 'SUCCESS');
-let m2 = factory.create('receiver', 'Hello comrade', 'User');
-let m3 = factory.create('sender', 'I am fine. What about you?', 'Me');
+let m2 = factory.create('receiver', 'Hello comrade. How are you?', getCurrentTime());
+let m3 = factory.create('sender', 'I am fine. What about you?', getCurrentTime());
 setTimeout(() =>{
     // m1.createAndSendMessage();
     m2.createAndSendMessage();
     m3.createAndSendMessage();
-}, 3000);
+}, 1500);
 
 

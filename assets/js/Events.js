@@ -18,16 +18,20 @@ class Events {
     }
 
     userTyping(){
-        console.log('user is typing');
+        chat.typingIndication('on')
+    }
+
+    resetUserTyping(){
+        chat.typingIndication('off')
     }
 
     sendMessage(data){
         // chat.createMessage( 'receiver' , data.message, 'John Doe');
-        let message = factory.create('receiver' , data.message, 'John Doe');
+        let message = factory.create('sender' , data.message, getCurrentTime());
         message.createAndSendMessage();
     }
 
-    moveToTop(){
+    moveUserToTop(){
 
     }
 

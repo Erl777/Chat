@@ -2,13 +2,14 @@
 
 .mobile-chat{
     position: fixed;
-    width: 300px;
+    width: 25%;
     height: 60%;
     background-color: #eeeeee;
     right: 10px;
     bottom: 10px;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .06), 0 2px 5px 0 rgba(0, 0, 0, .2);
     border-radius: 4px 4px 0 0;
+    z-index: 1000;
 }
 
 .mobile-chat.hide{
@@ -55,7 +56,7 @@
     align-items: center;
     justify-content: center;
     color: white;
-    right: 310px;
+    right: calc(25% + 10px);
     top: calc(40% - 10px);
     width: 120px;
     height: 30px;
