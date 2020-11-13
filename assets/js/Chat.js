@@ -4,20 +4,6 @@ class Chat {
         this.settings = {
 
         };
-        this.users = {
-            user1:{
-                img: 'assets/img/avatar1.png',
-                name: 'User1'
-            },
-            user2:{
-                img: 'assets/img/avatar2.png',
-                name: 'User2'
-            },
-            user3:{
-                img: 'assets/img/avatar3.png',
-                name: 'User3'
-            }
-        };
         // Elements
         this.messageInput = document.getElementById('comment');
         this.replySendIcon = document.querySelector('.reply-send');
@@ -40,12 +26,12 @@ class Chat {
             this.keyDown(e)
         });
 
-        this.renderUsers(this.users);
+        // this.renderUsers(this.users);
         // Тестовый прогон поднятия пользователя
-        setTimeout(()=>{
-            this.moveUserToTop('User3');
-            this.changeSender('User3');
-        }, 3000);
+        // setTimeout(()=>{
+        //     this.moveUserToTop('User3');
+        //     this.changeSender('User3');
+        // }, 3000);
     }
 
     sendMessage = () => {
