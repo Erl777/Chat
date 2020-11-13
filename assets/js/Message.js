@@ -17,7 +17,7 @@ class Message {
 }
 
 class MessageFactory {
-    create(type, content, time){
+    create(type, content, time = getCurrentTime()){
         if (type === 'system'){
             return new SystemMessage(type, content, time);
         }
@@ -25,6 +25,7 @@ class MessageFactory {
             return new ReceiverMessage(type, content, time);
         }
         if (type === 'sender'){
+            console.log(content)
             return new SenderMessage(type, content, time);
         }
     }
@@ -61,13 +62,13 @@ function getCurrentTime() {
 
 const factory = new MessageFactory();
 
-// let m1 = factory.create('system', 'SUCCESS');
-let m2 = factory.create('receiver', 'Hello comrade. How are you?', getCurrentTime());
-let m3 = factory.create('sender', 'I am fine. What about you?', getCurrentTime());
-setTimeout(() =>{
-    // m1.createAndSendMessage();
-    m2.createAndSendMessage();
-    m3.createAndSendMessage();
-}, 1500);
+// factory.create('system', 'SUCCESS').createAndSendMessage();
+// let m2 = factory.create('receiver', 'Hello comrade. How are you?', getCurrentTime());
+// let m3 = factory.create('sender', 'I am fine. What about you?', getCurrentTime());
+// setTimeout(() =>{
+//     // m1.createAndSendMessage();
+//     m2.createAndSendMessage();
+//     m3.createAndSendMessage();
+// }, 1500);
 
 

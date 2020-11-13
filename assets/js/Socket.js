@@ -26,9 +26,9 @@ class Socket {
         //     chatEvent.sendMessage(data);
         // };
 
-        setTimeout(()=>{
-            this.roomSwitching('room2');
-        }, 7000);
+        // setTimeout(()=>{
+        //     this.roomSwitching('room2');
+        // }, 7000);
 
         var socket = io.connect(`http://${this.settings.hostname}:${this.settings.port}`);
         this.socket  = socket;
@@ -50,9 +50,17 @@ class Socket {
         });
 
         // listener, whenever the server emits 'updatechat', this updates the chat body
-        socket.on('updatechat',  (username, data) => {
+        socket.on('updatechat',  (data) => {
             // $('#conversation').append('<b>'+username + ':</b> ' + data + '<br>');
-            console.log('updatechat', username, data);
+            // console.log('updatechat', username, data);
+            // console.log(data[0].userName);
+            for(let i = 0; i < data.length; i++){
+                // if(data[i].name === socket.name){
+                console.log(data[i]);
+                factory.create('sender', data[i].message).createAndSendMessage();
+                // }
+                // data[i]
+            }
 
         });
 
@@ -62,6 +70,11 @@ class Socket {
             chat.renderUsers(rooms);
         });
 
+
+        socket.on('switchRoom', () => {
+            console.log('switchRoom');
+
+        });
 
         socket.on('switchRoom', () => {
             console.log('switchRoom');
